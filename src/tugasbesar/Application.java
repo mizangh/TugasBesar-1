@@ -11,7 +11,8 @@ package tugasbesar;
  */
 public class Application {
     /**
-     * Masih kosong gan
+     * Masih kosong 
+     * 
      * 
      */
     
