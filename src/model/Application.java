@@ -15,11 +15,12 @@ public class Application {
 
     private ArrayList<Member> daftarMember;
     private ArrayList<Lapangan> daftarLapangan;
-    protected Transaksi transaksi;
+    protected Transaksi t;
 
     public Application() {
         daftarMember = new ArrayList<>();
         daftarLapangan = new ArrayList<>();
+        t = new Transaksi();
     }
 
     /**
