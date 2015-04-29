@@ -106,6 +106,13 @@ public class Application {
         return member;
     }
 
+    /**
+     * Method untuk menambah lapangan by 1103130063
+     *
+     * @param noLapangan no lapangan yang akan diisi, tipe: String
+     * @param jenisLapangan jenis lapangan yang akan diisi, tipe: String
+     * @param harga harga lapangan yang akan diisi, tipe: int
+     */
     public void addLapangan(String noLapangan, String jenisLapangan, int harga) {
         Lapangan l = new Lapangan(noLapangan, jenisLapangan, harga);
         try {
@@ -116,6 +123,11 @@ public class Application {
 
     }
 
+    /**
+     *
+     * @param noLapangan
+     * @return
+     */
     public Lapangan cariLapangan(String noLapangan) {
         Lapangan lapangan = null;
         for (Lapangan temp : daftarLapangan) {
