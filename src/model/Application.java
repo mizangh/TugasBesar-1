@@ -124,9 +124,10 @@ public class Application {
     }
 
     /**
-     *
-     * @param noLapangan
-     * @return
+     * Method untuk mencari lapangan by 1103130063
+     * 
+     * @param noLapangan no lapangan yang akan dicari, tipe: String
+     * @return lapangan
      */
     public Lapangan cariLapangan(String noLapangan) {
         Lapangan lapangan = null;
