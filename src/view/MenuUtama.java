@@ -50,6 +50,11 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         buttonPemesanan.setText("Pemesanan");
+        buttonPemesanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPemesananActionPerformed(evt);
+            }
+        });
 
         buttonJadwal.setText("Jadwal");
 
@@ -111,6 +116,13 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_buttonExitActionPerformed
+
+    private void buttonPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPemesananActionPerformed
+        // TODO add your handling code here:
+        new MenuPemesanan().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_buttonPemesananActionPerformed
 
     /**
      * @param args the command line arguments

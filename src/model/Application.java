@@ -140,6 +140,10 @@ public class Application {
         return lapangan;
     }
 
+    public ArrayList<Lapangan> getDaftarLapangan() {
+        return daftarLapangan;
+    }
+    
     /**
      * Method untuk mengeluarkan nama member dari daftarMember
      *
