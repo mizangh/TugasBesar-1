@@ -141,9 +141,10 @@ public class Application {
     }
 
     public String getDaftarMember() {
-        for (Member m : daftarMember) {
-            return daftarMember.get(daftarMember.indexOf(m)).getNamaMember();
+        String member = "";
+        for (int i = 0; i < daftarMember.size(); i++) {
+            member += daftarMember.get(i).getNamaMember() + '\n';
         }
-        return null;
+        return member;
     }
 }

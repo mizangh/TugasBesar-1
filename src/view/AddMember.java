@@ -162,7 +162,7 @@ public class AddMember extends javax.swing.JFrame {
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         // TODO add your handling code here:
         app.addMember(textID.getText(), textNama.getText(), textTelepon.getText());
-        textMember.setText(app.getDaftarMember().toString());
+        textMember.setText(app.getDaftarMember());
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
