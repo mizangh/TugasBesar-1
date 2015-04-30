@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import model.Application;
 import model.Transaksi;
 
@@ -13,7 +14,7 @@ import model.Transaksi;
  * @author Mizancuk
  */
 public class AddMember extends javax.swing.JFrame {
-
+    
     private Application app = new Application();
     private Transaksi t = new Transaksi();
 
@@ -45,24 +46,6 @@ public class AddMember extends javax.swing.JFrame {
         textMember = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        textID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDActionPerformed(evt);
-            }
-        });
-
-        textNama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNamaActionPerformed(evt);
-            }
-        });
-
-        textTelepon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textTeleponActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("ID");
 
@@ -147,22 +130,15 @@ public class AddMember extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textIDActionPerformed
-
-    private void textNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNamaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNamaActionPerformed
-
-    private void textTeleponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTeleponActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textTeleponActionPerformed
-
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         // TODO add your handling code here:
-        app.addMember(textID.getText(), textNama.getText(), textTelepon.getText());
+        try {
+            app.addMember(textID.getText(), textNama.getText(), textTelepon.getText());
+        } catch (Exception ex) {
+            viewErrorMsg(ex.getMessage());
+        }
         textMember.setText(app.getDaftarMember());
+        refresh();
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
@@ -170,41 +146,15 @@ public class AddMember extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_buttonBackActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddMember().setVisible(true);
-            }
-        });
+    
+    public void refresh() {
+        textID.setText(null);
+        textNama.setText(null);
+        textTelepon.setText(null);
+    }
+    
+    public void viewErrorMsg(String errorMsg) {
+        JOptionPane.showMessageDialog(this, errorMsg);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

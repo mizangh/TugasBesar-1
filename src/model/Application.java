@@ -140,10 +140,15 @@ public class Application {
         return lapangan;
     }
 
+    /**
+     * Method untuk mengeluarkan nama member dari daftarMember
+     *
+     * @return list nama dari daftar member
+     */
     public String getDaftarMember() {
         String member = "";
-        for (int i = 0; i < daftarMember.size(); i++) {
-            member += daftarMember.get(i).getNamaMember() + '\n';
+        for (Member temp : daftarMember) {
+            member += temp.getNamaMember() + '\n';
         }
         return member;
     }
