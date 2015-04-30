@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import model.Application;
 import model.Transaksi;
@@ -46,6 +48,7 @@ public class MenuMember extends javax.swing.JFrame {
         buttonHapus = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textMember = new javax.swing.JTextArea();
+        buttonLoad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +90,13 @@ public class MenuMember extends javax.swing.JFrame {
         textMember.setRows(5);
         jScrollPane1.setViewportView(textMember);
 
+        buttonLoad.setText("Load");
+        buttonLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +116,9 @@ public class MenuMember extends javax.swing.JFrame {
                             .addComponent(textNama, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(buttonBack)))
+                        .addComponent(buttonBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonLoad)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -141,7 +153,8 @@ public class MenuMember extends javax.swing.JFrame {
                     .addComponent(buttonTambah)
                     .addComponent(buttonBack)
                     .addComponent(buttonEdit)
-                    .addComponent(buttonHapus))
+                    .addComponent(buttonHapus)
+                    .addComponent(buttonLoad))
                 .addContainerGap())
         );
 
@@ -152,6 +165,7 @@ public class MenuMember extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             app.addMember(textID.getText(), textNama.getText(), textTelepon.getText());
+            app.saveData();
         } catch (Exception ex) {
             viewErrorMsg(ex.getMessage());
         }
@@ -169,13 +183,13 @@ public class MenuMember extends javax.swing.JFrame {
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
         // TODO add your handling code here:
         try {
-            app.returnMember(textID.getText());
             app.editMember(textID.getText(), textNama.getText(), textTelepon.getText());
+            app.saveData();
+            textMember.setText(app.getDaftarMember());
+            refresh();
         } catch (Exception ex) {
             viewErrorMsg(ex.getMessage());
         }
-        textMember.setText(app.getDaftarMember());
-        refresh();
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
@@ -183,12 +197,24 @@ public class MenuMember extends javax.swing.JFrame {
         try {
             app.cariMember(textID.getText());
             app.removeMember(textID.getText());
+            app.saveData();
+            textMember.setText(app.getDaftarMember());
+            refresh();
         } catch (Exception ex) {
             viewErrorMsg(ex.getMessage());
         }
-        textMember.setText(app.getDaftarMember());
-        refresh();
     }//GEN-LAST:event_buttonHapusActionPerformed
+
+    private void buttonLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoadActionPerformed
+        // TODO add your handling code here:
+        try {
+            app.loadData();
+            textMember.setText(app.getDaftarMember());
+            refresh();
+        } catch (IOException | ClassNotFoundException ex) {
+            viewErrorMsg(ex.getMessage());
+        }
+    }//GEN-LAST:event_buttonLoadActionPerformed
 
     public void refresh() {
         textID.setText(null);
@@ -204,6 +230,7 @@ public class MenuMember extends javax.swing.JFrame {
     private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonLoad;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

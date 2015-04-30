@@ -27,6 +27,7 @@ public class Application {
         daftarMember = new ArrayList<>();
         daftarLapangan = new ArrayList<>();
         t = new Transaksi();
+        data = new FileIO();
         setLapangan();
     }
 
@@ -173,25 +174,23 @@ public class Application {
     public void saveData() throws IOException {
         try {
             data.saveObject(daftarMember, "Member.txt");
+            data.saveObject(daftarLapangan, "Lapangan.txt");
         } catch (FileNotFoundException ex) {
-            File m = new File("Member.txt");
-            m.createNewFile();
+            throw new FileNotFoundException("File not found.");
         } catch (IOException ex) {
-            throw new IOException("Error " + ex.getMessage());
+            throw new IOException("IO Exception.");
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public void loadData() throws IOException {
+    //@SuppressWarnings("unchecked")
+    public void loadData() throws IOException, ClassNotFoundException {
         try {
             daftarMember = (ArrayList<Member>) data.getObject("Member.txt");
-        } catch (FileNotFoundException ex) {
-            File m = new File("Member.txt");
-            m.createNewFile();
-        } catch (EOFException ex) {
-            daftarMember = new ArrayList<>();
-        } catch (IOException | ClassNotFoundException ex) {
-            throw new IOException("Error " + ex.getMessage());
+            daftarLapangan = (ArrayList<Lapangan>) data.getObject("Member.txt");
+        } catch (ClassNotFoundException ex) {
+            throw new ClassNotFoundException("Class not found.");
+        } catch (IOException ex) {
+            throw new IOException("IO Exception.");
         }
     }
 }

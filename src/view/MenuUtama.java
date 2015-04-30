@@ -5,8 +5,6 @@
  */
 package view;
 
-import model.Application;
-
 /**
  *
  * @author Mizancuk
