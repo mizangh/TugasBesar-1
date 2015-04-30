@@ -5,8 +5,6 @@
  */
 package view;
 
-
-
 /**
  *
  * @author Mizancuk
@@ -104,13 +102,15 @@ public class MenuUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMemberActionPerformed
-       new MenuMember().setVisible(true); 
-       this.setVisible(false);
-       this.dispose();// TODO add your handling code here:
+        // TODO add your handling code here:
+        new MenuMember().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_buttonMemberActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_buttonExitActionPerformed
 
     /**
@@ -139,16 +139,9 @@ public class MenuUtama extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MenuUtama().setVisible(true);
             }
@@ -165,5 +158,4 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
-    
 }

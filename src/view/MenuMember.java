@@ -5,20 +5,21 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import model.Application;
-import model.Member;
+import model.Transaksi;
 
 /**
  *
  * @author Mizancuk
  */
 public class MenuMember extends javax.swing.JFrame {
-    
-    Application app = new Application();
-    Member m = new Member();
-    
+
+    private Application app = new Application();
+    private Transaksi t = new Transaksi();
+
     /**
-     * Creates new form TambahMember
+     * Creates new form AddMember
      */
     public MenuMember() {
         initComponents();
@@ -33,112 +34,183 @@ public class MenuMember extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ButtonInsert = new javax.swing.JButton();
-        Buttonupdate = new javax.swing.JButton();
-        ButtonDelete = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        textID = new javax.swing.JTextField();
+        textNama = new javax.swing.JTextField();
+        textTelepon = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        buttonTambah = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
+        buttonEdit = new javax.swing.JButton();
+        buttonHapus = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textMember = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ButtonInsert.setText("ADD");
-        ButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("ID Member");
+
+        jLabel2.setText("Nama Member");
+
+        jLabel3.setText("Nomor Telepon");
+
+        buttonTambah.setText("Tambah");
+        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonInsertActionPerformed(evt);
+                buttonTambahActionPerformed(evt);
             }
         });
 
-        Buttonupdate.setText("EDIT");
-        Buttonupdate.addActionListener(new java.awt.event.ActionListener() {
+        buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonupdateActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
 
-        ButtonDelete.setText("DELETE");
-        ButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        buttonEdit.setText("Edit");
+        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonDeleteActionPerformed(evt);
+                buttonEditActionPerformed(evt);
             }
         });
 
-        jButton4.setText("KEMBALI");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonHapus.setText("Hapus");
+        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonHapusActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Cari");
+        textMember.setColumns(20);
+        textMember.setRows(5);
+        jScrollPane1.setViewportView(textMember);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBack)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonDelete))
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Buttonupdate, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))))
-                .addContainerGap(110, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textNama, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonTambah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonHapus))
+                    .addComponent(jScrollPane1))
+                .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonInsert)
-                    .addComponent(Buttonupdate))
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonDelete)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                    .addComponent(buttonTambah)
+                    .addComponent(buttonBack)
+                    .addComponent(buttonEdit)
+                    .addComponent(buttonHapus))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInsertActionPerformed
-        new AddMember().setVisible(true);
-        this.setVisible(false);
-        this.dispose();// TODO add your handling code here:
-       
-    }//GEN-LAST:event_ButtonInsertActionPerformed
+    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
+        // TODO add your handling code here:
+        try {
+            app.addMember(textID.getText(), textNama.getText(), textTelepon.getText());
+        } catch (Exception ex) {
+            viewErrorMsg(ex.getMessage());
+        }
+        textMember.setText(app.getDaftarMember());
+        refresh();
+    }//GEN-LAST:event_buttonTambahActionPerformed
 
-    private void ButtonupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonupdateActionPerformed
-       app.editMember(m.getIdMember(),m.getNamaMember(), m.getNoTelepon()); // TODO add your handling code here:
-        
-    }//GEN-LAST:event_ButtonupdateActionPerformed
-
-    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
-        app.removeMember(m.getIdMember());// TODO add your handling code here:
-        
-    }//GEN-LAST:event_ButtonDeleteActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         new MenuUtama().setVisible(true);
         this.setVisible(false);
         this.dispose();// TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        // TODO add your handling code here:
+        try {
+            app.returnMember(textID.getText());
+            app.editMember(textID.getText(), textNama.getText(), textTelepon.getText());
+        }catch (Exception ex){
+            viewErrorMsg(ex.getMessage());
+        }
+        textMember.setText(app.getDaftarMember());
+        refresh();
+    }//GEN-LAST:event_buttonEditActionPerformed
+
+    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
+        // TODO add your handling code here:
+        try{
+            app.cariMember(textID.getText());
+            app.removeMember(textID.getText());
+        }catch (Exception ex){
+            viewErrorMsg(ex.getMessage());
+        }
+        textMember.setText(app.getDaftarMember());
+        refresh();
+    }//GEN-LAST:event_buttonHapusActionPerformed
+
+    public void refresh() {
+        textID.setText(null);
+        textNama.setText(null);
+        textTelepon.setText(null);
+    }
+
+    public void viewErrorMsg(String errorMsg) {
+        JOptionPane.showMessageDialog(this, errorMsg);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonDelete;
-    private javax.swing.JButton ButtonInsert;
-    private javax.swing.JButton Buttonupdate;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonTambah;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField textID;
+    private javax.swing.JTextArea textMember;
+    private javax.swing.JTextField textNama;
+    private javax.swing.JTextField textTelepon;
     // End of variables declaration//GEN-END:variables
 }
