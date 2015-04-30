@@ -15,7 +15,7 @@ import model.Transaksi;
  * @author Nikho Sagala
  */
 public class MenuJadwal extends javax.swing.JFrame {
-    
+
     Application app = new Application();
     Transaksi t = new Transaksi();
 
@@ -127,9 +127,9 @@ public class MenuJadwal extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void setTableJadwal(){
-        String[] judul = {app.getDaftarLapangan().get(0).getNoLapangan(),app.getDaftarLapangan().get(1).getNoLapangan(),app.getDaftarLapangan().get(2).getNoLapangan()};
+
+    public void setTableJadwal() {
+        String[] judul = {app.getDaftarLapangan().get(0).getNoLapangan(), app.getDaftarLapangan().get(1).getNoLapangan(), app.getDaftarLapangan().get(2).getNoLapangan()};
         String[][] isi = new String[app.getDaftarLapangan().size()][3];
         for (int i = 0; i < app.getDaftarLapangan().size(); i++) {
             isi[i][0] = Arrays.toString(app.getDaftarLapangan().get(0).getJadwal());

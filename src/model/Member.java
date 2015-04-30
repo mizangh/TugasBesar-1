@@ -49,8 +49,8 @@ public class Member {
     }
 
     /**
-     * Method untuk mengeset id member by 1103130063
-     * Exception by 11013130066
+     * Method untuk mengeset id member by 1103130063 Exception by 11013130066
+     *
      * @param idMember id member yang akan diset, tipe: String
      */
     public void setIdMember(String idMember) {

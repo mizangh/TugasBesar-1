@@ -171,7 +171,7 @@ public class MenuMember extends javax.swing.JFrame {
         try {
             app.returnMember(textID.getText());
             app.editMember(textID.getText(), textNama.getText(), textTelepon.getText());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             viewErrorMsg(ex.getMessage());
         }
         textMember.setText(app.getDaftarMember());
@@ -180,17 +180,17 @@ public class MenuMember extends javax.swing.JFrame {
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             app.cariMember(textID.getText());
             app.removeMember(textID.getText());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             viewErrorMsg(ex.getMessage());
         }
         textMember.setText(app.getDaftarMember());
         refresh();
     }//GEN-LAST:event_buttonHapusActionPerformed
 
-    private void refresh() {
+    public void refresh() {
         textID.setText(null);
         textNama.setText(null);
         textTelepon.setText(null);

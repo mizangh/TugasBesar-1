@@ -25,8 +25,8 @@ public class Transaksi {
     }
 
     /**
-     * Method untuk memesan lapangan futsal by 1103130045 
-     * Exception by 1103130066
+     * Method untuk memesan lapangan futsal by 1103130045 Exception by
+     * 1103130066
      *
      * @param tanggal tanggal yang akan di set ke jadwal, tipe: String
      * @param hari hari yang akan diset ke jadwal, tipe: String

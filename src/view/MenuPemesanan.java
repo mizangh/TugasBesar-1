@@ -180,7 +180,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
 
     private void buttonPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesanActionPerformed
         // TODO add your handling code here:
-        t.pesanLapangan((String)spinnerDate.getValue(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textNamaMember.getText()), Integer.parseInt(textJam.getText()));
+        t.pesanLapangan((String) spinnerDate.getValue(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textNamaMember.getText()), Integer.parseInt(textJam.getText()));
         refresh();
     }//GEN-LAST:event_buttonPesanActionPerformed
 
@@ -189,14 +189,13 @@ public class MenuPemesanan extends javax.swing.JFrame {
         t.batalLapangan(app.cariLapangan(textLapangan.getText()), Integer.parseInt(textJam.getText()));
     }//GEN-LAST:event_buttonBatalActionPerformed
 
-    
     private void refresh() {
         textHari.setText(null);
         textJam.setText(null);
         textLapangan.setText(null);
         textNamaMember.setText(null);
     }
-    
+
     /**
      * @param args the command line arguments
      */
