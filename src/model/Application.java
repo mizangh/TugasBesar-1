@@ -5,11 +5,6 @@
  */
 package model;
 
-import connection.FileIO;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +16,6 @@ public class Application {
     private ArrayList<Member> daftarMember;
     private ArrayList<Lapangan> daftarLapangan;
     private Transaksi t;
-    private FileIO data;
 
     public Application() {
         daftarMember = new ArrayList<>();
