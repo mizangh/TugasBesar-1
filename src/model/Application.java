@@ -5,6 +5,11 @@
  */
 package model;
 
+import connection.FileIO;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,12 +21,9 @@ public class Application {
     private ArrayList<Member> daftarMember;
     private ArrayList<Lapangan> daftarLapangan;
     private Transaksi t;
+    private FileIO data;
 
     public Application() {
-
-    }
-
-    public Application(String s) {
         daftarMember = new ArrayList<>();
         daftarLapangan = new ArrayList<>();
         t = new Transaksi();
@@ -166,5 +168,30 @@ public class Application {
             member += temp.getIdMember() + " " + temp.getNamaMember() + '\n';
         }
         return member;
+    }
+
+    public void saveData() throws IOException {
+        try {
+            data.saveObject(daftarMember, "Member.txt");
+        } catch (FileNotFoundException ex) {
+            File m = new File("Member.txt");
+            m.createNewFile();
+        } catch (IOException ex) {
+            throw new IOException("Error " + ex.getMessage());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void loadData() throws IOException {
+        try {
+            daftarMember = (ArrayList<Member>) data.getObject("Member.txt");
+        } catch (FileNotFoundException ex) {
+            File m = new File("Member.txt");
+            m.createNewFile();
+        } catch (EOFException ex) {
+            daftarMember = new ArrayList<>();
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new IOException("Error " + ex.getMessage());
+        }
     }
 }
