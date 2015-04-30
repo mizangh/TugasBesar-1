@@ -39,7 +39,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
         tableLapangan = new javax.swing.JTable();
         buttonBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        textNamaMember = new javax.swing.JTextField();
+        textIDMember = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         textJam = new javax.swing.JTextField();
         buttonPesan = new javax.swing.JButton();
@@ -73,7 +73,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nama Pemesan");
+        jLabel1.setText("ID Member");
 
         jLabel2.setText("Jam");
 
@@ -123,9 +123,9 @@ public class MenuPemesanan extends javax.swing.JFrame {
                                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(textNamaMember)
+                                    .addComponent(textIDMember)
                                     .addComponent(textHari, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spinnerDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(spinnerDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(textJam, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textLapangan, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,7 +155,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNamaMember, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textIDMember, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(buttonPesan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -180,7 +180,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
 
     private void buttonPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesanActionPerformed
         // TODO add your handling code here:
-        t.pesanLapangan((String) spinnerDate.getValue(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textNamaMember.getText()), Integer.parseInt(textJam.getText()));
+        t.pesanLapangan(spinnerDate.getValue().toString(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textIDMember.getText()), Integer.parseInt(textJam.getText()));
         refresh();
     }//GEN-LAST:event_buttonPesanActionPerformed
 
@@ -193,7 +193,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
         textHari.setText(null);
         textJam.setText(null);
         textLapangan.setText(null);
-        textNamaMember.setText(null);
+        textIDMember.setText(null);
     }
 
     public void setTableLapangan() {
@@ -222,8 +222,8 @@ public class MenuPemesanan extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerDate;
     private javax.swing.JTable tableLapangan;
     private javax.swing.JTextField textHari;
+    private javax.swing.JTextField textIDMember;
     private javax.swing.JTextField textJam;
     private javax.swing.JTextField textLapangan;
-    private javax.swing.JTextField textNamaMember;
     // End of variables declaration//GEN-END:variables
 }

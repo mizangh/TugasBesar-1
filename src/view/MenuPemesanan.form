@@ -48,7 +48,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="textNamaMember" max="32767" attributes="0"/>
+                                  <Component id="textIDMember" max="32767" attributes="0"/>
                                   <Component id="textHari" alignment="0" max="32767" attributes="0"/>
                                   <Component id="spinnerDate" alignment="0" pref="150" max="32767" attributes="0"/>
                                   <Component id="textJam" alignment="0" max="32767" attributes="0"/>
@@ -91,7 +91,7 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textNamaMember" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textIDMember" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonPesan" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -138,10 +138,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nama Pemesan"/>
+        <Property name="text" type="java.lang.String" value="ID Member"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textNamaMember">
+    <Component class="javax.swing.JTextField" name="textIDMember">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

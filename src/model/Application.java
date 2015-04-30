@@ -6,8 +6,6 @@
 package model;
 
 import connection.FileIO;
-import java.io.EOFException;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -182,11 +180,11 @@ public class Application {
         }
     }
 
-    //@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public void loadData() throws IOException, ClassNotFoundException {
         try {
             daftarMember = (ArrayList<Member>) data.getObject("Member.txt");
-            daftarLapangan = (ArrayList<Lapangan>) data.getObject("Member.txt");
+            daftarLapangan = (ArrayList<Lapangan>) data.getObject("Lapangan.txt");
         } catch (ClassNotFoundException ex) {
             throw new ClassNotFoundException("Class not found.");
         } catch (IOException ex) {
