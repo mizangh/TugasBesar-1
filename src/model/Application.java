@@ -148,7 +148,7 @@ public class Application {
     public String getDaftarMember() {
         String member = "";
         for (Member temp : daftarMember) {
-            member += temp.getNamaMember() + '\n';
+            member += temp.getIdMember() + " " + temp.getNamaMember() + '\n';
         }
         return member;
     }
