@@ -126,7 +126,7 @@ public class Application {
 
     /**
      * Method untuk mencari lapangan by 1103130063
-     * 
+     *
      * @param noLapangan no lapangan yang akan dicari, tipe: String
      * @return lapangan
      */
@@ -140,4 +140,10 @@ public class Application {
         return lapangan;
     }
 
+    public String getDaftarMember() {
+        for (Member m : daftarMember) {
+            return daftarMember.get(daftarMember.indexOf(m)).getNamaMember();
+        }
+        return null;
+    }
 }
