@@ -112,9 +112,10 @@ public class MenuUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMemberActionPerformed
+        // TODO add your handling code here:
         new MenuMember().setVisible(true);
         this.setVisible(false);
-        this.dispose();// TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_buttonMemberActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed

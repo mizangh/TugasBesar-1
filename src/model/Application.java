@@ -18,6 +18,10 @@ public class Application {
     private Transaksi t;
 
     public Application() {
+
+    }
+
+    public Application(String s) {
         daftarMember = new ArrayList<>();
         daftarLapangan = new ArrayList<>();
         t = new Transaksi();
