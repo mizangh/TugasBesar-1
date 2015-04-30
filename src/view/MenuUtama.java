@@ -92,7 +92,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonMember, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonJadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonJadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94)
                 .addComponent(buttonExit)
                 .addContainerGap())
@@ -102,10 +102,9 @@ public class MenuUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMemberActionPerformed
-        // TODO add your handling code here:
         new MenuMember().setVisible(true);
         this.setVisible(false);
-        this.dispose();
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_buttonMemberActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
