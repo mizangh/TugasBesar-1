@@ -21,6 +21,13 @@ public class Application {
         daftarMember = new ArrayList<>();
         daftarLapangan = new ArrayList<>();
         t = new Transaksi();
+        setLapangan();
+    }
+
+    public void setLapangan() {
+        addLapangan("L001", "Rumput Laut", 180000);
+        addLapangan("L002", "Rumput Sintetis", 120000);
+        addLapangan("L007", "Rumput Impor", 200000);
     }
 
     /**
@@ -143,7 +150,7 @@ public class Application {
     public ArrayList<Lapangan> getDaftarLapangan() {
         return daftarLapangan;
     }
-    
+
     /**
      * Method untuk mengeluarkan nama member dari daftarMember
      *

@@ -5,17 +5,26 @@
  */
 package view;
 
+import java.util.Arrays;
+import javax.swing.table.DefaultTableModel;
+import model.Application;
+import model.Transaksi;
+
 /**
  *
  * @author Nikho Sagala
  */
 public class MenuJadwal extends javax.swing.JFrame {
+    
+    Application app = new Application();
+    Transaksi t = new Transaksi();
 
     /**
      * Creates new form MenuJadwal
      */
     public MenuJadwal() {
         initComponents();
+        setTableJadwal();
     }
 
     /**
@@ -27,21 +36,62 @@ public class MenuJadwal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableJadwal = new javax.swing.JTable();
+        buttonBack = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tableJadwal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableJadwal);
+
+        buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBack))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(buttonBack)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        // TODO add your handling code here:
+        new MenuUtama().setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_buttonBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,7 +127,23 @@ public class MenuJadwal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void setTableJadwal(){
+        String[] judul = {app.getDaftarLapangan().get(0).getNoLapangan(),app.getDaftarLapangan().get(1).getNoLapangan(),app.getDaftarLapangan().get(2).getNoLapangan()};
+        String[][] isi = new String[app.getDaftarLapangan().size()][3];
+        for (int i = 0; i < app.getDaftarLapangan().size(); i++) {
+            isi[i][0] = Arrays.toString(app.getDaftarLapangan().get(0).getJadwal());
+            isi[i][1] = Arrays.toString(app.getDaftarLapangan().get(1).getJadwal());
+            isi[i][2] = Arrays.toString(app.getDaftarLapangan().get(2).getJadwal());
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi, judul);
+        tableJadwal.setModel(tableModel);
+        tableJadwal.getColumnModel().getColumn(0).setPreferredWidth(24);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableJadwal;
     // End of variables declaration//GEN-END:variables
 }

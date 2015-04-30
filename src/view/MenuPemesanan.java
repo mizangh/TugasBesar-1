@@ -23,9 +23,6 @@ public class MenuPemesanan extends javax.swing.JFrame {
      */
     public MenuPemesanan() {
         initComponents();
-        app.addLapangan("L001", "Rumput Laut", 180000);
-        app.addLapangan("L002", "Rumput Sintetis", 120000);
-        app.addLapangan("L007", "Rumput Impor", 200000);
         setTableLapangan();
     }
 
