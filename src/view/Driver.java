@@ -37,6 +37,7 @@ public class Driver {
         System.out.println(app.cariMember("M0004"));
         t.pesanLapangan("10 April 2015", "Jumat", app.cariLapangan("002"), app.returnMember("M0004"), 9);
         System.out.println(Arrays.toString(app.cariLapangan("001").getJadwal()));
+        System.out.println(app.getDaftarMember());
         System.out.println(Arrays.toString(app.cariLapangan("002").getJadwal()));
         System.out.println(t.getLaporan());
     }
