@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Application;
 import model.Transaksi;
@@ -15,14 +16,16 @@ import model.Transaksi;
  */
 public class MenuPemesanan extends javax.swing.JFrame {
 
-    private Application app = new Application();
-    Transaksi t = new Transaksi();
+    private Application app;
+    private Transaksi t;
 
     /**
      * Creates new form MenuPemesanan
      */
     public MenuPemesanan() {
         initComponents();
+        t = new Transaksi();
+        app = new Application();
         setTableLapangan();
     }
 
@@ -180,7 +183,11 @@ public class MenuPemesanan extends javax.swing.JFrame {
 
     private void buttonPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesanActionPerformed
         // TODO add your handling code here:
-        t.pesanLapangan(spinnerDate.getValue().toString(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textIDMember.getText()), Integer.parseInt(textJam.getText()));
+        try {
+            t.pesanLapangan(spinnerDate.getValue().toString(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textIDMember.getText()), Integer.parseInt(textJam.getText()));
+        } catch (Exception ex) {
+            viewErrorMsg(ex.getMessage());
+        }
         refresh();
     }//GEN-LAST:event_buttonPesanActionPerformed
 
@@ -207,6 +214,10 @@ public class MenuPemesanan extends javax.swing.JFrame {
         DefaultTableModel tableModel = new DefaultTableModel(isi, judul);
         tableLapangan.setModel(tableModel);
         tableLapangan.getColumnModel().getColumn(0).setPreferredWidth(10);
+    }
+
+    private void viewErrorMsg(String errorMsg) {
+        JOptionPane.showMessageDialog(this, errorMsg);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

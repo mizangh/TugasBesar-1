@@ -17,14 +17,16 @@ import model.Transaksi;
  */
 public class MenuMember extends javax.swing.JFrame {
 
-    private Application app = new Application();
-    private Transaksi t = new Transaksi();
+    private Application app;
+    private Transaksi t;
 
     /**
      * Creates new form AddMember
      */
     public MenuMember() {
         initComponents();
+        app = new Application();
+        t = new Transaksi();
     }
 
     /**
@@ -222,7 +224,7 @@ public class MenuMember extends javax.swing.JFrame {
         textTelepon.setText(null);
     }
 
-    public void viewErrorMsg(String errorMsg) {
+    private void viewErrorMsg(String errorMsg) {
         JOptionPane.showMessageDialog(this, errorMsg);
     }
 

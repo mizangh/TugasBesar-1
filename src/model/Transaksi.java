@@ -5,16 +5,18 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Nikho Sagala
  */
-public class Transaksi {
+public class Transaksi implements Serializable{
 
     private final ArrayList<String> laporan;
     private double pemasukan;
+    private String lap;
 
     /**
      * Constructor untuk transaksi, untuk menginstansiasi laporan by 1103130063
@@ -38,23 +40,17 @@ public class Transaksi {
         try {
             Jadwal jadwal[] = new Jadwal[23];
             Jadwal j = new Jadwal(tanggal, hari, Integer.toString(jam), member);
-            String s;
             if (jam >= 8) {
-                if (!member.isStatusBayar()) {
-                    s = "Lapangan " + lapangan.getNoLapangan() + " dipesan oleh " + member.getNamaMember() + " jam " + Integer.toString(jam) + " belum bayar uang muka.";
-                } else {
-                    s = "Lapangan " + lapangan.getNoLapangan() + " dipesan oleh " + member.getNamaMember() + " jam " + Integer.toString(jam) + " sudah bayar uang muka sebesar " + bayarUangMuka(lapangan, member);
-                }
+                lap = "Lapangan " + lapangan.getNoLapangan() + " dipesan oleh " + member.getNamaMember() + " jam " + Integer.toString(jam) + ".";
+                laporan.add(lap);
             } else {
                 throw new IllegalArgumentException("Lapangan masih tutup.");
             }
             jadwal[jam] = j;
             lapangan.setJadwal(jadwal);
-            laporan.add(s);
         } catch (IllegalArgumentException ex) {
             throw new IllegalArgumentException("Illegal argument exception.");
         }
-
     }
 
     /**
@@ -82,7 +78,10 @@ public class Transaksi {
      */
     public double bayarUangMuka(Lapangan lapangan, Member member) {
         double uangMuka = 0.5 * lapangan.getHarga();
+        String s;
         member.setStatusBayar(true);
+        lap = "Lapangan " + lapangan.getNoLapangan() + " dibayar uang muka.";
+        laporan.add(lap);
         setPemasukan(this.pemasukan + uangMuka);
         return uangMuka;
     }

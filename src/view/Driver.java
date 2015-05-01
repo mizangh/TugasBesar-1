@@ -29,8 +29,8 @@ public class Driver {
         app.removeMember("M0003");
         app.addMember("M0004", "Paijo", "081334451223");
         app.addMember("M0005", "Aryadi", "081324124124");
-        t.bayarUangMuka(app.cariLapangan("002"), app.returnMember("M0001"));
-        t.bayarUangMuka(app.cariLapangan("002"), app.returnMember("M0005"));
+        //t.bayarUangMuka(app.cariLapangan("002"), app.returnMember("M0001"));
+        //t.bayarUangMuka(app.cariLapangan("002"), app.returnMember("M0005"));
         t.pesanLapangan("10 April 2015", "Jumat", app.cariLapangan("002"), app.returnMember("M0005"), 8);
         t.pesanLapangan("11 April 2015", "Sabtu", app.cariLapangan("002"), app.returnMember("M0001"), 8);
         t.batalLapangan(app.cariLapangan("002"), 8);

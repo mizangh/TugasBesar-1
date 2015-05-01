@@ -6,7 +6,6 @@
 package view;
 
 import java.util.Arrays;
-import javax.swing.table.DefaultTableModel;
 import model.Application;
 import model.Transaksi;
 
@@ -16,15 +15,16 @@ import model.Transaksi;
  */
 public class MenuJadwal extends javax.swing.JFrame {
 
-    Application app = new Application();
-    Transaksi t = new Transaksi();
+    private Application app;
+    private Transaksi t;
 
     /**
      * Creates new form MenuJadwal
      */
     public MenuJadwal() {
         initComponents();
-        setTableJadwal();
+        app = new Application();
+        t = new Transaksi();
     }
 
     /**
@@ -36,24 +36,15 @@ public class MenuJadwal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableJadwal = new javax.swing.JTable();
         buttonBack = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textJadwal = new javax.swing.JTextArea();
+        buttonLapangan1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        buttonLapangan2 = new javax.swing.JButton();
+        buttonLapangan3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        tableJadwal.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tableJadwal);
 
         buttonBack.setText("Back");
         buttonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +53,24 @@ public class MenuJadwal extends javax.swing.JFrame {
             }
         });
 
+        textJadwal.setColumns(20);
+        textJadwal.setRows(5);
+        jScrollPane2.setViewportView(textJadwal);
+
+        buttonLapangan1.setText("Lapangan 1");
+        buttonLapangan1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLapangan1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Jadwal");
+
+        buttonLapangan2.setText("Lapangan 2");
+
+        buttonLapangan3.setText("Lapangan 3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,17 +78,35 @@ public class MenuJadwal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBack))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonLapangan1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonLapangan2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonLapangan3)
+                        .addGap(0, 40, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(buttonBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonBack)
+                    .addComponent(buttonLapangan1)
+                    .addComponent(buttonLapangan2)
+                    .addComponent(buttonLapangan3))
                 .addContainerGap())
         );
 
@@ -93,22 +120,18 @@ public class MenuJadwal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
 
-    public void setTableJadwal() {
-        String[] judul = {app.getDaftarLapangan().get(0).getNoLapangan(), app.getDaftarLapangan().get(1).getNoLapangan(), app.getDaftarLapangan().get(2).getNoLapangan()};
-        String[][] isi = new String[app.getDaftarLapangan().size()][3];
-        for (int i = 0; i < app.getDaftarLapangan().size(); i++) {
-            isi[i][0] = Arrays.toString(app.getDaftarLapangan().get(0).getJadwal());
-            isi[i][1] = Arrays.toString(app.getDaftarLapangan().get(1).getJadwal());
-            isi[i][2] = Arrays.toString(app.getDaftarLapangan().get(2).getJadwal());
-        }
-        DefaultTableModel tableModel = new DefaultTableModel(isi, judul);
-        tableJadwal.setModel(tableModel);
-        tableJadwal.getColumnModel().getColumn(0).setPreferredWidth(24);
-    }
+    private void buttonLapangan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLapangan1ActionPerformed
+        // TODO add your handling code here:
+       textJadwal.setText(Arrays.toString(app.cariLapangan("L001").getJadwal()));
+    }//GEN-LAST:event_buttonLapangan1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBack;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableJadwal;
+    private javax.swing.JButton buttonLapangan1;
+    private javax.swing.JButton buttonLapangan2;
+    private javax.swing.JButton buttonLapangan3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea textJadwal;
     // End of variables declaration//GEN-END:variables
 }
