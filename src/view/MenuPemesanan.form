@@ -181,7 +181,7 @@
     <Component class="javax.swing.JSpinner" name="spinnerDate">
       <Properties>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="1430456400000" minimum="now" stepSize="5" type="date"/>
+          <SpinnerModel initial="now" minimum="now" stepSize="5" type="date"/>
         </Property>
       </Properties>
     </Component>

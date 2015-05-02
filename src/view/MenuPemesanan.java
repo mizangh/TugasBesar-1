@@ -8,6 +8,8 @@ package view;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Application;
+import model.Lapangan;
+import model.Member;
 import model.Transaksi;
 
 /**
@@ -98,7 +100,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
 
         jLabel4.setText("Tanggal");
 
-        spinnerDate.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1430456400000L), new java.util.Date(), null, java.util.Calendar.DAY_OF_MONTH));
+        spinnerDate.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), new java.util.Date(), null, java.util.Calendar.DAY_OF_MONTH));
 
         jLabel5.setText("No Lapangan");
 
@@ -128,7 +130,7 @@ public class MenuPemesanan extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(textIDMember)
                                     .addComponent(textHari, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spinnerDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(spinnerDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(textJam, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textLapangan, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,8 +185,13 @@ public class MenuPemesanan extends javax.swing.JFrame {
 
     private void buttonPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesanActionPerformed
         // TODO add your handling code here:
+        String tanggal = spinnerDate.getValue().toString();
+        String hari = textHari.getText();
+        Lapangan lapangan = app.cariLapangan(textLapangan.getText());
+        Member member = app.returnMember(textIDMember.getText());
+        int jam = Integer.parseInt(textJam.getText());
         try {
-            t.pesanLapangan(spinnerDate.getValue().toString(), textHari.getText(), app.cariLapangan(textLapangan.getText()), app.returnMember(textIDMember.getText()), Integer.parseInt(textJam.getText()));
+            t.pesanLapangan(tanggal, hari, lapangan, member, jam);
         } catch (Exception ex) {
             viewErrorMsg(ex.getMessage());
         }
